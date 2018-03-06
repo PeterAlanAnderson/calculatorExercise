@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Calculator</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">jQuery Calculator</h1>
+    <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <!-- Calculator Panel -->
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Calculator</h3>
+                </div>
+
+                <div class="panel-body">
+                    <button id="button-1" class="btn btn-primary number" value="1"><h1>1</h1></button>
+                    <button id="button-2" class="btn btn-primary number" value="2"><h1>2</h1></button>
+                    <button id="button-3" class="btn btn-primary number" value="3"><h1>3</h1></button>
+                    <button id="button-plus" class="btn btn-danger operator" value="plus"><h1>+</h1></button>
+                    <br><br>
+                    <button id="button-4" class="btn btn-primary number" value="4"><h1>4</h1></button>
+                    <button id="button-5" class="btn btn-primary number" value="5"><h1>5</h1></button>
+                    <button id="button-6" class="btn btn-primary number" value="6"><h1>6</h1></button>
+                    <button id="button-minus" class="btn btn-danger operator" value="minus"><h1>&minus;</h1></button>
+                    <br><br>
+                    <button id="button-7" class="btn btn-primary number" value="7"><h1>7</h1></button>
+                    <button id="button-8" class="btn btn-primary number" value="8"><h1>8</h1></button>
+                    <button id="button-9" class="btn btn-primary number" value="9"><h1>9</h1></button>
+                    <button id="button-multiply" class="btn btn-danger operator" value="times"><h1>&times;</h1></button>
+                    <br><br>
+                    <button id="button-0" class="btn btn-primary number" value="0"><h1>0</h1></button>
+                    <button id="button-divide" class="btn btn-danger operator" value="divide"><h1>&divide;</h1></button>
+                    <button id="button-power" class="btn btn-danger operator" value="power"><h1>^</h1></button>
+                    <button id="button-equal" class="btn btn-success equal" value="equals"><h1>=</h1></button>
+                    <br><br>
+                    <button id="button-clear" class="btn btn-default clear" value="clear"><h1>clear</h1></button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="col-lg-6">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Result</h3>
+                </div>
+                <div class="panel-body">
+                    <h1 id="first-number"></h1>
+                    <h1 id="operator"></h1>
+                    <h1 id="second-number"></h1>
+                    <hr>
+                    <h1 id="result"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var equation = ["",null,""];
+
+$(document).ready(function(){
+
+    $("#button-1").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-2").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+    
+    $("#button-3").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-plus").on("click", function() {
+        console.log(this.value + " was pressed")
+        addSign(this.value)
+        
+      });
+
+    $("#button-4").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-5").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+    
+    $("#button-6").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-minus").on("click", function() {
+        console.log(this.value + " was pressed")
+        addSign(this.value)
+        
+      });
+
+    $("#button-7").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-8").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+    
+    $("#button-9").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-multiply").on("click", function() {
+        console.log(this.value + " was pressed")
+        addSign(this.value)
+        
+      });
+
+    $("#button-0").on("click", function() {
+        console.log(this.value + " was pressed")
+        addNum(this.value)
+        
+      });
+
+    $("#button-divide").on("click", function() {
+        console.log(this.value + " was pressed")
+        addSign(this.value)
+        
+      });
+    
+    $("#button-power").on("click", function() {
+        console.log(this.value + " was pressed")
+        addSign(this.value)
+        
+      });
+
+    $("#button-equal").on("click", function() {
+        console.log(this.value + " was pressed")
+        doMath(this.value)
+        
+      });
+    
+    $("#button-clear").on("click", function() {
+        console.log(this.value + " was pressed")
+        clearAll(this.value)
+        
+      });
+
+    
+//******************************************************************************************
+
+      function addNum(value) {
+          if (equation[1]===null){
+              equation[0]=equation[0]+value;
+              console.log(equation[0]);
+              $("#first-number").text(equation[0]);
+          } else {
+              equation[2]=equation[2]+value;
+              console.log(equation[2]);
+              $("#second-number").text(equation[2]);
+          } 
+      }
+
+      function addSign(value) {
+          equation[1]=value;
+          $("#operator").text(equation[1]);
+      }
+
+      function doMath() {
+          equation[0]=parseInt(equation[0]);
+          equation[2]=parseInt(equation[2]);
+          let result = 0;
+          if (equation[1]==="plus"){
+              result = doMathPlus();
+          }
+          if (equation[1]==="minus"){
+              result = doMathMinus();
+          }
+          if (equation[1]==="times"){
+              result = doMathTimes();
+          }
+          if (equation[1]==="divide"){
+              result = doMathDivide();
+          }
+          if (equation[1]==="power"){
+              result = doMathPower()
+          }
+          console.log(result);
+          $("#result").text(result);
+      }
+
+      function clearAll() {
+          equation = ["",null,""];
+          $("#first-number").text("");
+          $("#second-number").text("");
+          $("#operator").text("");
+          $("#result").text("");
+      }
+
+        function doMathPlus() {
+        var result= equation[0] + equation[2];
+        return result;
+        }
+
+        function doMathMinus() {
+        var result= equation[0] - equation[2];
+        return result
+        }
+
+       function doMathTimes() {
+       var result= equation[0] * equation[2];
+       return result
+       }
+
+      function doMathDivide() {
+          let total = equation[0]/equation[2];
+          return total;
+      }
+
+      function doMathPower() {
+          let total = 1;
+          for (let i=0;i<equation[2];i++) {
+              total = total*equation[0];
+              console.log("total = ")
+          }
+          return total;
+          
+
+      }
+
+
+// Your code here...
+
+
+
+
+});
+
+</script>
+
+</body>
+</html>
